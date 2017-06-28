@@ -1,5 +1,6 @@
 package sistemasdistribuidos.tresenraya.client.views;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
 
@@ -32,7 +33,7 @@ public class Board extends javax.swing.JFrame {
 		layout.setVgap(10);
 		panel.setBorder(new EmptyBorder(30, 30, 30, 30));
 		panel.setLayout(layout);
-		
+		panel.setBackground(Color.WHITE);
 
 		for(int i = 0; i < NUMBER_OF_CELLLS; i++){
 			cells[i] = new Cell(i);
