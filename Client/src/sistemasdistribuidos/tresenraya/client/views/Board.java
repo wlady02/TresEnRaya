@@ -1,18 +1,13 @@
 package sistemasdistribuidos.tresenraya.client.views;
 
-import javax.swing.JFrame;
+import java.awt.Container;
+import java.awt.GridLayout;
 
 public class Board extends javax.swing.JFrame {
-	
-	private javax.swing.JButton cell1;
-    private javax.swing.JButton cell2;
-    private javax.swing.JButton cell3;
-    private javax.swing.JButton cell4;
-    private javax.swing.JButton cell5;
-    private javax.swing.JButton cell6;
-    private javax.swing.JButton cell7;
-    private javax.swing.JButton cell8;
-    private javax.swing.JButton cell9;
+
+    private final int NUMBER_OF_CELLLS = 9;
+    
+    private Cell[] cells;    
 
 	/**
 	 * 
@@ -21,6 +16,19 @@ public class Board extends javax.swing.JFrame {
 	
 	public Board(String name){
 		super(name);
+		cells = new Cell[NUMBER_OF_CELLLS];
+		initBoard();
 	}
 
+	public void initBoard(){		
+		Container container = getContentPane();
+		GridLayout layout = new GridLayout(3, 3);
+		
+		container.setLayout(layout);
+
+		for(int i = 0; i < NUMBER_OF_CELLLS; i++){
+			cells[i] = new Cell(i);
+			container.add(cells[i]);
+		}
+	}
 }
