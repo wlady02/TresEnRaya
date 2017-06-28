@@ -21,15 +21,18 @@ public class Game {
     private final int MASK = 3;
 	
 	private int board;
+    private int movements;
 	private Player player;
 	
 	public Game(){
 		board = 0;
+		movements = 0;
 		player = Player.PLAYER1;
 	}
 	
 	public Game(Player player){
 		board = 0;
+		movements = 0;
 		this.player = player;
 	}
 	
@@ -44,9 +47,13 @@ public class Game {
 			movement = PLAYER2_VALUE << (2 * cell);
 		
 		board |= movement;
+		movements++;
 		
 		if(isWinner())
 			return player == Player.PLAYER1 ? Movement.WINNING_PLAYER1 : Movement.WINNING_PLAYER2;
+		
+		if(movements == NUMBER_OF_CELLLS)
+			return Movement.FINAL;
 
 		player = player == Player.PLAYER1 ? Player.PLAYER2 : Player.PLAYER1;
 		return Movement.ALLOWED;
