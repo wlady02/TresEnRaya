@@ -7,16 +7,16 @@ import java.awt.GridLayout;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class Board extends javax.swing.JFrame {
-
-    private final int NUMBER_OF_CELLLS = 9;
-    
-    private Cell[] cells;    
+public class Board extends javax.swing.JFrame {   
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+    private final int NUMBER_OF_CELLLS = 9;
+    
+    private Cell[] cells; 
 	
 	public Board(String name){
 		super(name);
