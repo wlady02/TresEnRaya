@@ -3,7 +3,9 @@ package sistemasdistribuidos.tresenraya.client.controllers;
 import sistemasdistribuidos.tresenraya.client.enums.Movement;
 import sistemasdistribuidos.tresenraya.client.enums.Player;
 
-public class Game {
+public class Game {	
+
+    public static final int NUMBER_OF_CELLLS = 9;
 	
 	private final int COM1 = 0x3f;						// Combinacion 1 - primera fila.
     private final int COM2 = 0xfc0;						// Combinacion 2 - segunda fila.
@@ -51,7 +53,7 @@ public class Game {
 	}
 	
 	private boolean isValid(int cell) {
-		int value = MASK << (2 * cell);
+		int value = board & (MASK << (2 * cell));
 		return value == 0;
 	}
 	
@@ -66,7 +68,21 @@ public class Game {
                     ((board & COM7) == 0x20202) || ((board & COM8) == 0x2220);
 	}
 	
-	public int getBoard(){
-		return board;
+	public String[] getBoard(){
+		String[] cells = new String[NUMBER_OF_CELLLS];
+		int value;
+		
+		for(int i = 0; i < NUMBER_OF_CELLLS; i++){
+			value = board & (MASK << (2 * i));
+			value >>= (2 * i);
+			if(value == PLAYER1_VALUE)
+				cells[i] = "X";
+			else if(value == PLAYER2_VALUE)
+				cells[i] = "O";
+			else
+				cells[i] = "";
+		}
+		
+		return cells;
 	}
 }

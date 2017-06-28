@@ -3,9 +3,14 @@ package sistemasdistribuidos.tresenraya.client.views;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import sistemasdistribuidos.tresenraya.client.controllers.Game;
+import sistemasdistribuidos.tresenraya.client.enums.Movement;
 
 public class Board extends javax.swing.JFrame {   
 
@@ -13,14 +18,14 @@ public class Board extends javax.swing.JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-    private final int NUMBER_OF_CELLLS = 9;
     
     private Cell[] cells; 
+    private Game game;
 	
 	public Board(String name){
 		super(name);
-		cells = new Cell[NUMBER_OF_CELLLS];
+		cells = new Cell[Game.NUMBER_OF_CELLLS];
+		game = new Game();
 		initBoard();
 	}
 
@@ -35,11 +40,31 @@ public class Board extends javax.swing.JFrame {
 		panel.setLayout(layout);
 		panel.setBackground(Color.WHITE);
 
-		for(int i = 0; i < NUMBER_OF_CELLLS; i++){
+		for(int i = 0; i < Game.NUMBER_OF_CELLLS; i++){
 			cells[i] = new Cell(i);
+			cells[i].addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent event) {
+					onClick(event);					
+				}
+			});
 			panel.add(cells[i]);
 		}
 		
 		container.add(panel);
+	}
+	
+	public void onClick(ActionEvent event) {
+		Cell cell = (Cell) event.getSource();		
+		Movement movement = game.move(cell.getCellNumber());
+		if(movement == Movement.NOT_ALLOWED){
+			
+		}
+		else{
+			String[] cellValues = game.getBoard();
+			for(int i = 0; i < Game.NUMBER_OF_CELLLS; i++)
+				cells[i].setText(cellValues[i]);
+		}
 	}
 }
