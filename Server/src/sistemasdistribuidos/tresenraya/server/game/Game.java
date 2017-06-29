@@ -109,7 +109,7 @@ public static final int NUMBER_OF_CELLLS = 9;
 		this.player2 = player;
 	}
 	
-	class PlayerThread extends Thread {
+	public class PlayerThread extends Thread {
 		
 		private Socket socket;
 		private Player player;
