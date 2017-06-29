@@ -1,7 +1,7 @@
 package sistemasdistribuidos.tresenraya.client.views;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,8 +32,7 @@ public class Board extends javax.swing.JFrame {
 		initBoard();
 	}
 
-	public void initBoard(){		
-		Container container = getContentPane();
+	public void initBoard(){
 		GridLayout layout = new GridLayout(3, 3);
 		JPanel headerPanel = new JPanel();
 		JPanel boardPanel = new JPanel();
@@ -59,8 +58,9 @@ public class Board extends javax.swing.JFrame {
 			boardPanel.add(cells[i]);
 		}
 		
-		container.add(headerPanel);
-		container.add(boardPanel);
+		setLayout(new BorderLayout());
+		add(headerPanel, BorderLayout.NORTH);
+		add(boardPanel, BorderLayout.CENTER);
 	}
 	
 	private void onClick(ActionEvent event) {
