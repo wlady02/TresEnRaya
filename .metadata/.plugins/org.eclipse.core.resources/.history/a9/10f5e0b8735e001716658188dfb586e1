@@ -1,0 +1,14 @@
+package sistemasdistrubuidos.tresenraya.server.logic;
+
+public class Game implements Runnable {
+	
+	public Game() {
+		
+	}
+
+	@Override
+	public void run() {
+
+	}
+
+}

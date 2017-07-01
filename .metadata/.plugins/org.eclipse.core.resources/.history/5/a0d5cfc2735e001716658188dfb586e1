@@ -1,0 +1,16 @@
+package sistemasdistrubuidos.tresenraya.server.logic;
+
+import java.net.Socket;
+
+public class Game implements Runnable {
+	
+	public Game(Socket player1, Socket player2) {
+		
+	}
+
+	@Override
+	public void run() {
+
+	}
+
+}

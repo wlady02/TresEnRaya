@@ -1,0 +1,16 @@
+package sistemasdistrubuidos.tresenraya.server.logic;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+
+public class Orb {
+	private int port;
+
+	public Orb(int port) {
+		this.port = port;
+	}
+
+	public void start() throws IOException {
+		ServerSocket listener = new ServerSocket(port);
+	}
+}

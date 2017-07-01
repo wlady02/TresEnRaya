@@ -1,0 +1,13 @@
+package sistemasdistrubuidos.tresenraya.server.logic;
+
+public class Orb {
+	private int port;
+	
+	public Orb(int port){
+		this.port = port;
+	}
+	
+	public void start(){
+		
+	}
+}
