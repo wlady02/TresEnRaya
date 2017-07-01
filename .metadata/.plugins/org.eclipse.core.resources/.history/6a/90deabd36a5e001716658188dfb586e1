@@ -1,0 +1,9 @@
+package sistemasdistribuidos.tresenraya.server;
+
+public class ORB {
+
+	public ORB(int port){
+		
+	}
+
+}

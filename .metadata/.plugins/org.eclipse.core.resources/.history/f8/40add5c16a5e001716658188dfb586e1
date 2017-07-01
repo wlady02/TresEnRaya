@@ -1,0 +1,10 @@
+package sistemasdistribuidos.tresenraya.server;
+
+public class ORB {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
