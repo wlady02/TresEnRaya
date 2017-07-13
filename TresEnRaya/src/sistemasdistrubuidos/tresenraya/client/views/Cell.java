@@ -10,9 +10,6 @@ public class Cell extends JButton {
 	
 	private int number;
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	public Cell(int number){
@@ -25,4 +22,6 @@ public class Cell extends JButton {
 	public int getCellNumber(){
 		return number;
 	}
+	
+
 }

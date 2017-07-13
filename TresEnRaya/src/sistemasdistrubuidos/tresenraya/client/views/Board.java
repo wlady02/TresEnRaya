@@ -14,10 +14,6 @@ import sistemasdistrubuidos.tresenraya.client.controllers.Game;
 import sistemasdistrubuidos.tresenraya.common.Movement;
 
 public class Board extends javax.swing.JFrame {   
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
     
 	private JLabel label;

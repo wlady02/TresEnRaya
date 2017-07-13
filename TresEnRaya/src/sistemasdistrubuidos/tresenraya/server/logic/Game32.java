@@ -9,7 +9,7 @@ import java.net.Socket;
 import sistemasdistrubuidos.tresenraya.common.Movement;
 import sistemasdistrubuidos.tresenraya.common.Player;
 
-public class Game32 {
+public class Game32 implements IGame{
 	public static final int NUMBER_OF_CELLLS = 9;
 
 	private final int COM1 = 0x3f; // Combinacion 1 - primera fila.
@@ -30,9 +30,9 @@ public class Game32 {
 	private int board;
 	private int movements;
 	private Player player;
-
+/*
 	private PlayerThread player1;
-	private PlayerThread player2;
+	private PlayerThread player2;*/
 
 	public Game32() {
 		board = 0;
@@ -102,63 +102,26 @@ public class Game32 {
 
 		return cells;
 	}
-
+/*
 	public void setPlayer1(PlayerThread player) {
 		this.player1 = player;
 	}
 
 	public void setPlayer2(PlayerThread player) {
 		this.player2 = player;
+	}*/
+
+	@Override
+	public int getMove() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
-	public class PlayerThread extends Thread {
-
-		private Socket socket;
-		private Player player;
-		private PlayerThread opponent;
-		private BufferedReader input;
-		private DataOutputStream output;
-
-		public PlayerThread(Socket socket, Player player) {
-			this.socket = socket;
-			this.player = player;
-
-			try {
-				input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-				output = new DataOutputStream(socket.getOutputStream());
-			} catch (IOException exception) {
-				System.out.println("Error on opening connection pipelines: " + exception);
-			}
-		}
-
-		public void setOpponent(PlayerThread opponent) {
-			this.opponent = opponent;
-		}
-
-		public void run() {
-			String message;
-			int movement;
-
-			try {
-				if (player == Player.PLAYER1)
-					output.writeUTF("Es tu turno");
-				else
-					output.writeUTF("Es el turno del jugador 1");
-
-				while (true) {
-					message = input.readLine();
-					movement = Integer.parseInt(message);
-				}
-			} catch (IOException exception) {
-				System.out.println("Error on playing: " + exception);
-			} finally {
-				try {
-					socket.close();
-				} catch (IOException closeException) {
-					System.out.println("Error on closing socket: " + closeException);
-				}
-			}
-		}
+	@Override
+	public void setMove(int position) {
+		// TODO Auto-generated method stub
+		
 	}
+
 }
 
