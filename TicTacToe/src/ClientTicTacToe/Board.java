@@ -36,6 +36,8 @@ public class Board extends javax.swing.JFrame {
 		//initBoard();
 	}
 	public void representarTirada(int celda){
+		// No es necesario que hagas esto. Esto se utiliza para iniciar el tablero. Para representar la tirada lo unico que deberías hacer 
+		// es pintar sobre la celda. Nada más.
 		GridLayout layout = new GridLayout(3, 3);
 		JPanel headerPanel = new JPanel();
 		JPanel boardPanel = new JPanel();
@@ -67,7 +69,7 @@ public class Board extends javax.swing.JFrame {
 		celda = cell.getCellNumber();
 		Movement movement = move(cell.getCellNumber());
 		if(movement == Movement.NOT_ALLOWED){
-			label.setText("Movimiento no v�lido.");
+			label.setText("Movimiento no válido.");
 		}
 		else{
 			String[] cellValues = getBoard();
