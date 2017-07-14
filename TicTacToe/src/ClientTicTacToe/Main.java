@@ -1,24 +1,31 @@
 package ClientTicTacToe;
 
-import java.awt.Point;
-
 import javax.swing.JFrame;
-import javax.swing.text.Position;
 
 public class Main {
 	public static void main(String[] args) {
+		Game play = new Game();
+		Board board = new Board("Tablero");
+		int casilla=-1;
+		board.setSize(300, 350);
+		board.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		board.setVisible(true);
 		
-		//Game game = new Game();
-		//game.setboard();
-		
-		Game game = new Game();	//1
-		Board board = new Board("Tablero");//2				
-		int casilla = board.getMove(); //3
-		game.setMove(casilla,1);
-		int respuesta = game.getMove();
-		board.representarTirada(respuesta);
-			
-		
-		
+		while (true) {
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			casilla = board.getMove();
+			if(casilla!=-1) {
+			System.out.println(casilla + " esta es CASILLA");
+			play.setMove(casilla);
+			casilla=-1;
+			int resp = play.getMove();
+			board.getBoard(resp);
+			}
+		}
 	}
 }

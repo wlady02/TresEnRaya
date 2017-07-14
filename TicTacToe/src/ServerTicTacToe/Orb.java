@@ -40,17 +40,18 @@ public class Orb {// servidor ORB
 	            OutputStream os = sc.getOutputStream();
 	            canalEntrada = new DataInputStream(is);
 	            canalSalida = new DataOutputStream(os);
-	            iid = canalEntrada.readInt();
-	            esqueleto = getSkeleton(iid);
-	            esqueleto.process(canalEntrada, canalSalida);
-	            System.out.println("Fin");
-	            Thread tictactoe = new Thread(new Multihilo(sc));
-	            tictactoe.start();
+
+	             iid = canalEntrada.readInt();
+
+	             esqueleto = getSkeleton(iid);
+	             esqueleto.process(canalEntrada, canalSalida);
+	             System.out.println("Fin");
 		 		}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}		
+			}
+		
 	}
 
 	public static void main(String[] args) {

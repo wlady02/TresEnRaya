@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.Hashtable;
 
 public class SkeletonGame implements ISkeleton {	
-	private final int iid = 1;//identificador interfaz
-    private static int objid = 0;//identificador objeto
+	private final int iid = 1;
+    private static int objid = 0;
     Game objetoGame = null;
     Hashtable<Integer, Object> objectHash = new Hashtable<Integer, Object>();
     public void addObject(Object obj) {
@@ -38,15 +38,15 @@ public class SkeletonGame implements ISkeleton {
 	                    break;
 	                    }	                    
 	                case 2: {
-	                	//establece movimiento
 	                	int move = canalEntrada.readInt();
 	                	System.out.println("case 2 "+ move);
-	                    objetoGame = (Game)objectHash.get(objid);
-	                	objetoGame.setMove(move,1);
+	                	//objetoGame.setMove(move,1);
+	                	objetoGame = (Game)objectHash.get(objid);
+	                	//System.out.println(objetoGame);
+	                	objetoGame.setMove(move);
 	                	break;
 	                	}
 	                case 3 : {
-	                	//obtiene movimieto
 	                	System.out.println("case 3");
 	                	objetoGame = (Game)objectHash.get(objid);
 	                	canalSalida.writeInt(objetoGame.getMove());
@@ -56,12 +56,14 @@ public class SkeletonGame implements ISkeleton {
 	                	System.out.println("case 4");
 	                	objetoGame = (Game)objectHash.get(objid);
 	                	canalSalida.writeInt(objetoGame.victoria());
+	                	objetoGame.imprimirtabla();
 	                	break;
 	                    }
 	                case 5: {
 	                	System.out.println("case 5"); // la orden de reinicio la hace el cliente
 	                	objetoGame = (Game)objectHash.get(objid);
 	                	objetoGame.reiniciar();
+	                	objetoGame.imprimirtabla();
 	                	break;
 	                    }
 		            }

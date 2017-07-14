@@ -31,9 +31,9 @@ public class Game implements IGame{
 	    return resul;	    
 	}
 	
-	//hacer jugada
-	public void setMove(int pos,int value) {
-		this.tablero[pos]=value;
+	//jugada cliente
+	public void setMove(int pos) {
+		this.tablero[pos]=1;
 	}
 	
 	public void imprimirtabla(){
